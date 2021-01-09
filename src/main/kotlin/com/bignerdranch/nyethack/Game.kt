@@ -46,6 +46,7 @@ object Game {
         fun processCommand() = when (command.toLowerCase()) {
             "move" -> move(argument)
             "quit" -> quit()
+            "ring" -> ring()
             else -> commandNotFound()
         }
 
@@ -55,6 +56,13 @@ object Game {
 
     private fun quit() =
         println("farewell message to the adventurer")
+
+    private fun ring() =
+        if (currentRoom.name == "Town Square") {
+            TownSquare().ringBell()
+        } else {
+            println("you are not in town square!!")
+        }
 
 
     private fun move(directionInput: String) =
