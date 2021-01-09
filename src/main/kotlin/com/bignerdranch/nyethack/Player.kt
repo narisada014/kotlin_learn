@@ -1,5 +1,6 @@
 package com.bignerdranch.nyethack
 
+import com.sun.xml.internal.bind.v2.runtime.Coordinator
 import java.io.File
 // プライマリコンストラクタ
 class Player(
@@ -15,6 +16,7 @@ class Player(
         }
 
     val hometown by lazy { selectHometown() }
+    var currentPosition = Coordinate(0,0)
 
     // クラスの初期化で必ず呼び出される
     init {

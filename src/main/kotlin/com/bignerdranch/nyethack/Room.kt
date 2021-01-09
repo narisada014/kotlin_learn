@@ -1,0 +1,15 @@
+package com.bignerdranch.nyethack
+
+open class Room(val name: String) {
+    protected open val dangerLevel = 5
+    fun description() = "Room: $name\n" +
+            "Danger level: $dangerLevel"
+    open fun load() = "Nothing much to see here..."
+}
+
+open class TownSquare : Room("Town Square") {
+    override val dangerLevel = super.dangerLevel - 3
+    private var bellSound = "GOWNG"
+    final override fun load() = "The village rally and chear as enter!\n${ringBell()}"
+    private fun ringBell() = "The ball tower announces your arrival. $bellSound"
+}
